@@ -4,7 +4,22 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { DBTour } from "@/types/tour";
-import { coverImage, lowestPriceLabel } from "@/lib/queries"; // Wait — remove helper imports if they use queries, or keep pure helper functions safe
+
+function coverImage(tour: DBTour): string {
+  const cover = tour.images.find((i) => i.is_cover) ?? tour.images[0];
+  return (
+    cover?.storage_path ??
+    "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1400&q=85"
+  );
+}
+
+function lowestPriceLabel(tour: DBTour): string {
+  const kes = tour.pricing.find((p) => p.currency_code === "KES");
+  if (kes) return `From KES ${kes.adult_price.toLocaleString()}`;
+  const usd = tour.pricing.find((p) => p.currency_code === "USD");
+  if (usd) return `From USD ${usd.adult_price.toLocaleString()}`;
+  return "Price on request";
+}
 
 // ─── Unique filter options derived from tour data ─────────────────────────────
 

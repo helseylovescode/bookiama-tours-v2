@@ -4,6 +4,8 @@ import { DESTINATIONS } from "../data";
 import { getToursByCountry } from "@/lib/queries";
 import { TOURS as STATIC_TOURS } from "@/app/tours/data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Kenya",
   description:

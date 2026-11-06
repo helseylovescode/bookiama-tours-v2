@@ -3,6 +3,8 @@ import ToursClient from "./ToursClient";
 import { getPublishedTours } from "@/lib/queries";
 import { TOURS as STATIC_TOURS } from "./data";
 
+export const dynamic = "force-dynamic";
+
 // Server component — fetches data, passes to interactive client component
 export default async function ToursPage() {
   let tours = await getPublishedTours();
