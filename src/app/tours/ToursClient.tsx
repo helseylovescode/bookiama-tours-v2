@@ -3,8 +3,8 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { DBTour } from "@/lib/queries";
-import { coverImage, lowestPriceLabel } from "@/lib/queries";
+import type { DBTour } from "@/types/tour";
+import { coverImage, lowestPriceLabel } from "@/lib/queries"; // Wait — remove helper imports if they use queries, or keep pure helper functions safe
 
 // ─── Unique filter options derived from tour data ─────────────────────────────
 
@@ -269,9 +269,9 @@ export default function ToursClient({ tours }: { tours: DBTour[] }) {
       {/* ── Custom trip CTA ── */}
       <section className="custom-trip">
         <div className="custom-trip-content">
-          <p className="section-label">CAN'T FIND WHAT YOU'RE LOOKING FOR?</p>
-          <h2>Let's build<br /><em>something yours.</em></h2>
-          <p>Tell us your dates, budget and travel dreams. We'll put together a journey designed exactly for you.</p>
+          <p className="section-label">CAN&apos;T FIND WHAT YOU&apos;RE LOOKING FOR?</p>
+          <h2>Let&apos;s build<br /><em>something yours.</em></h2>
+          <p>Tell us your dates, budget and travel dreams. We&apos;ll put together a journey designed exactly for you.</p>
           <Link href="/contact" className="button button-gold">Request a custom journey <span>↗</span></Link>
         </div>
       </section>

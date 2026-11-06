@@ -9,6 +9,10 @@
  */
 
 import { createClient } from "@/lib/supabase/server";
+import type {}from "@/types/tour";
+
+// ─── Tours ───────────────────────────────────────────────────────────────────
+// (Keep all your query functions here...)
 
 // ─── Shared types (subset of DB columns needed by the UI) ────────────────────
 
@@ -131,8 +135,9 @@ export async function getToursByCountry(countryCode: string): Promise<DBTour[]> 
   }
 
   // Filter client-side — destination is a joined object
+  // Filter client-side — destination is a joined object
   const filtered = (data ?? []).filter(
-    (t) => (t.destination as { country_code: string } | null)?.country_code === countryCode
+    (t) => (t.destination as unknown as { country_code?: string } | null)?.country_code === countryCode
   );
 
   return filtered.map(normaliseTour);
