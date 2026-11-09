@@ -241,11 +241,14 @@ export default function TourDetailPage({
       {/* ── Header ── */}
       <header className="site-header">
         <Link href="/" className="brand" aria-label="Bokiama Tours and Travel home">
-          <span className="brand-symbol">B</span>
-          <span className="brand-name">
-            BOKIAMA
-            <small>TOURS &amp; TRAVEL</small>
-          </span>
+          <Image
+            src="/bokiama-logo.png"
+            alt="Bokiama Tours and Travel logo"
+            width={586}
+            height={450}
+            className="brand-logo"
+            priority
+          />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           <Link href="/">Home</Link>
@@ -370,7 +373,9 @@ export default function TourDetailPage({
               Enquire about this journey <span>↗</span>
             </Link>
             <p className="td-cta-note">
-              No payment now — we'll send you a personalised quotation.
+              Displayed prices are starting estimates. Request a quote to
+              confirm your trip&apos;s current price and terms.{" "}
+              <Link href="/travel-information#costs">Pricing and booking guidance</Link>
             </p>
           </div>
         </div>
@@ -521,18 +526,20 @@ export default function TourDetailPage({
               <div className="td-practical-card">
                 <h3>Booking & payment</h3>
                 <p>
-                  Submit an enquiry and we will confirm availability and send a
-                  personalised quotation. No payment is required until you confirm.
-                  We accept M-Pesa and bank transfer.
+                  The supplied terms specify a 25% deposit to confirm a booking
+                  and the remaining balance 40 days before travel. Confirm the
+                  payment method, due dates and total price in your written quote.
                 </p>
               </div>
               <div className="td-practical-card td-practical-card--wide">
                 <h3>Cancellation policy</h3>
                 <p>
-                  Full details are provided with your booking confirmation.
-                  As a guide: cancellations more than 30 days before departure
-                  receive a partial refund. Within 30 days, the deposit is
-                  non-refundable. We strongly recommend travel insurance.
+                  The supplied terms list charges of 26% from 90–40 days before
+                  arrival, 52% from 39–22 days, and 100% from 21 days before
+                  arrival or for a no-show. Refunds are processed within 15 days
+                  after confirmation, less bank and currency-exchange fees.
+                  Review the written terms with your quote; travel insurance is
+                  recommended.
                 </p>
               </div>
             </div>
@@ -580,10 +587,13 @@ export default function TourDetailPage({
       <footer className="site-footer">
         <div className="footer-top">
           <Link href="/" className="brand footer-brand">
-            <span className="brand-symbol">B</span>
-            <span className="brand-name">
-              BOKIAMA<small>TOURS &amp; TRAVEL</small>
-            </span>
+            <Image
+              src="/bokiama-logo-light.png"
+              alt="Bokiama Tours and Travel logo"
+              width={586}
+              height={450}
+              className="brand-logo"
+            />
           </Link>
           <p>
             Go beyond the expected.
@@ -600,7 +610,7 @@ export default function TourDetailPage({
           </div>
           <div>
             <span>DISCOVER</span>
-            <Link href="/collections">Collections</Link>
+            <Link href="/travel-information">Travel information</Link>
             <Link href="/about">Our story</Link>
             <Link href="/contact">Contact us</Link>
           </div>
@@ -608,6 +618,8 @@ export default function TourDetailPage({
             <span>GET IN TOUCH</span>
             <Link href="/contact">Plan a journey</Link>
             <Link href="/contact">Make an enquiry</Link>
+            <a href="tel:+254799941114">+254 799 941114</a>
+            <a href="mailto:oyujelsey@gmail.com">oyujelsey@gmail.com</a>
           </div>
         </div>
         <div className="footer-bottom">

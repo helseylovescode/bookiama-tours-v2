@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import type { ReactNode } from "react";
 const destinations = [
   {
@@ -85,18 +87,21 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a href="/" className="brand" aria-label="Bokiama Tours and Travel home">
-          <span className="brand-symbol">B</span>
-          <span className="brand-name">
-            BOKIAMA
-            <small>TOURS &amp; TRAVEL</small>
-          </span>
+          <Image
+            src="/bokiama-logo.png"
+            alt="Bokiama Tours and Travel logo"
+            width={586}
+            height={450}
+            className="brand-logo"
+            priority
+          />
         </a>
 
         <nav className="desktop-nav" aria-label="Main navigation">
           <a href="/">Home</a>
           <a href="/destinations/kenya">Destinations</a>
           <a href="/tours">Our Tours</a>
-          <a href="/collections">Experiences</a>
+          <Link href="/#collections">Experiences</Link>
           <a href="/about">Our Story</a>
         </nav>
 
@@ -111,7 +116,7 @@ export default function Home() {
             <a href="/destinations/kenya">Kenya</a>
             <a href="/destinations/tanzania">Tanzania</a>
             <a href="/tours">Our Tours</a>
-            <a href="/collections">Experiences</a>
+            <Link href="/#collections">Experiences</Link>
             <a href="/about">Our Story</a>
             <a href="/contact">Contact</a>
           </nav>
@@ -245,7 +250,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="collections section-padding">
+      <section id="collections" className="collections section-padding">
         <div className="collection-heading">
           <SectionLabel>THE BOKIAMA COLLECTIONS</SectionLabel>
           <h2>
@@ -262,7 +267,7 @@ export default function Home() {
         <div className="collection-list">
           {collections.map((collection) => (
             <a
-              href="/collections"
+              href="/tours"
               className="collection-item"
               key={collection.name}
             >
@@ -296,11 +301,13 @@ export default function Home() {
       <footer className="site-footer">
         <div className="footer-top">
           <a href="/" className="brand footer-brand">
-            <span className="brand-symbol">B</span>
-            <span className="brand-name">
-              BOKIAMA
-              <small>TOURS &amp; TRAVEL</small>
-            </span>
+            <Image
+              src="/bokiama-logo-light.png"
+              alt="Bokiama Tours and Travel logo"
+              width={586}
+              height={450}
+              className="brand-logo"
+            />
           </a>
           <p>
             Go beyond the expected.
@@ -318,7 +325,7 @@ export default function Home() {
           </div>
           <div>
             <span>DISCOVER</span>
-            <a href="/collections">Collections</a>
+            <a href="/travel-information">Travel information</a>
             <a href="/about">Our story</a>
             <a href="/contact">Contact us</a>
           </div>
@@ -326,6 +333,8 @@ export default function Home() {
             <span>GET IN TOUCH</span>
             <a href="/contact">Plan a journey</a>
             <a href="/contact">Make an enquiry</a>
+            <a href="tel:+254799941114">+254 799 941114</a>
+            <a href="mailto:oyujelsey@gmail.com">oyujelsey@gmail.com</a>
           </div>
         </div>
 

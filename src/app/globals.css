@@ -52,31 +52,19 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 11px;
+  line-height: 1;
 }
 
-.brand-symbol {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-family: Georgia, serif;
-  font-size: 27px;
-}
-
-.brand-name {
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 3px;
-}
-
-.brand-name small {
+.brand-logo {
   display: block;
-  margin-top: 4px;
-  font-size: 8px;
-  font-weight: 400;
-  letter-spacing: 3px;
+  width: 78px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-brand .brand-logo {
+  width: 136px;
 }
 
 .desktop-nav {
@@ -574,10 +562,6 @@ a {
   align-items: center;
   padding-bottom: 50px;
   border-bottom: 1px solid rgba(255,255,255,.16);
-}
-
-.footer-brand .brand-name {
-  font-size: 18px;
 }
 
 .footer-top > p {
@@ -4320,5 +4304,171 @@ a.contact-channel-value:hover {
   .cf-success-actions {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+.travel-info-hero {
+  padding: 88px 10% 82px;
+  background: var(--navy);
+  color: white;
+}
+
+.travel-info-hero h1 {
+  margin: 24px 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1.05;
+}
+
+.travel-info-hero h1 em,
+.travel-info-heading h2 em {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.travel-info-hero > p:not(.hero-eyebrow) {
+  max-width: 610px;
+  margin: 0 0 28px;
+  color: rgba(255,255,255,.82);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.travel-info-index {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  background: var(--cream);
+}
+
+.travel-info-index a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 13px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.travel-info-index a span:first-child,
+.travel-info-index a span:last-child,
+.travel-info-card-number {
+  color: var(--gold);
+}
+
+.travel-info-section {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.travel-info-section--tint {
+  background: var(--cream);
+}
+
+.travel-info-heading h2 {
+  margin: 18px 0;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  line-height: 1.12;
+}
+
+.travel-info-heading > p:last-child,
+.travel-info-copy p,
+.travel-info-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.travel-info-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.travel-info-card {
+  padding: 28px;
+  background: white;
+  border: 1px solid var(--line);
+}
+
+.travel-info-card--wide {
+  grid-column: 1 / -1;
+}
+
+.travel-info-card h3,
+.travel-info-copy h3 {
+  margin: 16px 0 10px;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.travel-info-card .underlined-link,
+.travel-info-copy .underlined-link {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+.travel-info-copy h3 {
+  margin-top: 0;
+}
+
+.travel-info-list {
+  display: grid;
+  gap: 12px;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.travel-info-copy .button {
+  margin-top: 12px;
+}
+
+.tours-pricing-note {
+  margin: 30px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.tours-pricing-note a,
+.td-cta-note a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .travel-info-hero {
+    padding: 66px 7%;
+  }
+
+  .travel-info-index,
+  .travel-info-section,
+  .travel-info-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-info-section {
+    gap: 30px;
+  }
+
+  .travel-info-card--wide {
+    grid-column: auto;
   }
 }

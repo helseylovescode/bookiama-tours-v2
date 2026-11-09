@@ -89,7 +89,7 @@ export async function submitEnquiry(
         return {
           status: "error",
           message:
-            "We could not submit your enquiry right now. Please try again or contact us directly on WhatsApp.",
+            "We could not submit your enquiry right now. Please try again or call +254 799 941114.",
         };
       }
 
@@ -121,7 +121,7 @@ export async function submitEnquiry(
         return {
           status: "error",
           message:
-            "We could not submit your enquiry right now. Please try again or contact us directly on WhatsApp.",
+            "We could not submit your enquiry right now. Please try again or call +254 799 941114.",
         };
       }
 
@@ -135,7 +135,7 @@ export async function submitEnquiry(
     return {
       status: "error",
       message:
-        "Something went wrong on our end. Please reach out to us on WhatsApp and we will respond immediately.",
+        "Something went wrong on our end. Please try again later or email oyujelsey@gmail.com.",
     };
   }
 }

@@ -39,7 +39,7 @@ const values = [
     icon: "📞",
     title: "Real support",
     description:
-      "From your first enquiry to the moment you get home, there is a real person you can call. Not a chatbot. Not a ticketing system.",
+      "From your first enquiry to the moment you get home, a real person is here to answer your questions.",
   },
   {
     icon: "🏆",
@@ -54,7 +54,7 @@ const milestones = [
     year: "The beginning",
     title: "An idea born on the Mara",
     description:
-      "Bokiama was founded by Moha — a Kenyan who had spent years watching visitors arrive in East Africa and leave without ever truly connecting with it. The idea was simple: build a travel company that understood Kenya from the inside.",
+      "Bokiama grew from a love of East Africa and a belief that travel should bring people closer to the places and communities they visit. The idea was simple: create journeys shaped by local knowledge and each traveller's interests.",
   },
   {
     year: "The name",
@@ -100,17 +100,20 @@ export default function AboutPage() {
       {/* ── Header ── */}
       <header className="site-header">
         <Link href="/" className="brand" aria-label="Bokiama Tours and Travel home">
-          <span className="brand-symbol">B</span>
-          <span className="brand-name">
-            BOKIAMA
-            <small>TOURS &amp; TRAVEL</small>
-          </span>
+          <Image
+            src="/bokiama-logo.png"
+            alt="Bokiama Tours and Travel logo"
+            width={586}
+            height={450}
+            className="brand-logo"
+            priority
+          />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           <Link href="/">Home</Link>
           <Link href="/destinations/kenya">Destinations</Link>
           <Link href="/tours">Our Tours</Link>
-          <Link href="/collections">Experiences</Link>
+          <Link href="/#collections">Experiences</Link>
           <Link href="/about" aria-current="page">Our Story</Link>
         </nav>
         <Link href="/contact" className="header-cta">
@@ -175,7 +178,7 @@ export default function AboutPage() {
             a travel company that actually understands what each customer wants
             and works to deliver exactly that."
           </blockquote>
-          <p className="about-quote-attr">— Moha, Founder, Bokiama Tours &amp; Travel</p>
+          <p className="about-quote-attr">— The Bokiama team</p>
         </div>
         <div className="about-statement-image">
           <Image
@@ -416,7 +419,7 @@ export default function AboutPage() {
             <h3>We stay in touch</h3>
             <p>
               From your first enquiry through to your return home, we are reachable
-              via WhatsApp or phone. If something changes, we handle it — you do
+              by phone or email. If something changes, we handle it — you do
               not have to figure it out alone.
             </p>
           </div>
@@ -451,11 +454,13 @@ export default function AboutPage() {
       <footer className="site-footer">
         <div className="footer-top">
           <Link href="/" className="brand footer-brand">
-            <span className="brand-symbol">B</span>
-            <span className="brand-name">
-              BOKIAMA
-              <small>TOURS &amp; TRAVEL</small>
-            </span>
+            <Image
+              src="/bokiama-logo-light.png"
+              alt="Bokiama Tours and Travel logo"
+              width={586}
+              height={450}
+              className="brand-logo"
+            />
           </Link>
           <p>
             Go beyond the expected.
@@ -472,7 +477,7 @@ export default function AboutPage() {
           </div>
           <div>
             <span>DISCOVER</span>
-            <Link href="/collections">Collections</Link>
+            <Link href="/travel-information">Travel information</Link>
             <Link href="/about">Our story</Link>
             <Link href="/contact">Contact us</Link>
           </div>
@@ -480,6 +485,8 @@ export default function AboutPage() {
             <span>GET IN TOUCH</span>
             <Link href="/contact">Plan a journey</Link>
             <Link href="/contact">Make an enquiry</Link>
+            <a href="tel:+254799941114">+254 799 941114</a>
+            <a href="mailto:oyujelsey@gmail.com">oyujelsey@gmail.com</a>
           </div>
         </div>
         <div className="footer-bottom">

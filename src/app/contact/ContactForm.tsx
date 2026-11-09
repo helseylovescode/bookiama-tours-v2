@@ -58,17 +58,9 @@ export default function ContactForm({ prefilledTour }: Props) {
           </p>
           <p className="cf-reference">{state.reference}</p>
           <p className="cf-success-note">
-            You can also reach us directly on WhatsApp for a faster response.
+            We will follow up using the contact details you provided.
           </p>
           <div className="cf-success-actions">
-            <a
-              href="https://wa.me/254700000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button button-gold"
-            >
-              Chat on WhatsApp ↗
-            </a>
             <Link href="/tours" className="cf-text-link">
               Browse more tours ↗
             </Link>
@@ -161,7 +153,7 @@ export default function ContactForm({ prefilledTour }: Props) {
           </div>
           <div className="cf-field">
             <label htmlFor="phone" className="cf-label">
-              Phone / WhatsApp <span className="cf-required" aria-label="required">*</span>
+              Phone number <span className="cf-required" aria-label="required">*</span>
             </label>
             <input
               id="phone"
@@ -312,7 +304,7 @@ export default function ContactForm({ prefilledTour }: Props) {
           )}
         </button>
         <p className="cf-submit-note">
-          No payment required. We will send you a personalised quotation within 24 hours.
+          No payment is required to send an enquiry. We will follow up with a personalised quotation.
         </p>
       </div>
     </form>

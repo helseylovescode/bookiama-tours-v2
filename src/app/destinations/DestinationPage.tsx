@@ -69,11 +69,14 @@ export default function DestinationPage({
       {/* ── Header ── */}
       <header className="site-header">
         <Link href="/" className="brand" aria-label="Bokiama Tours and Travel home">
-          <span className="brand-symbol">B</span>
-          <span className="brand-name">
-            BOKIAMA
-            <small>TOURS &amp; TRAVEL</small>
-          </span>
+          <Image
+            src="/bokiama-logo.png"
+            alt="Bokiama Tours and Travel logo"
+            width={586}
+            height={450}
+            className="brand-logo"
+            priority
+          />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           <Link href="/">Home</Link>
@@ -323,7 +326,8 @@ export default function DestinationPage({
         </div>
         <p className="dest-practical-note">
           ℹ️ Travel requirements can change. Always verify visa, health and entry requirements
-          with official government sources before booking.
+          with official government sources before booking.{" "}
+          <Link href="/travel-information#visas">See official visa resources ↗</Link>
         </p>
       </section>
 
@@ -387,11 +391,13 @@ export default function DestinationPage({
       <footer className="site-footer">
         <div className="footer-top">
           <Link href="/" className="brand footer-brand">
-            <span className="brand-symbol">B</span>
-            <span className="brand-name">
-              BOKIAMA
-              <small>TOURS &amp; TRAVEL</small>
-            </span>
+            <Image
+              src="/bokiama-logo-light.png"
+              alt="Bokiama Tours and Travel logo"
+              width={586}
+              height={450}
+              className="brand-logo"
+            />
           </Link>
           <p>Go beyond the expected.<br />Come back with a story.</p>
         </div>
@@ -404,7 +410,7 @@ export default function DestinationPage({
           </div>
           <div>
             <span>DISCOVER</span>
-            <Link href="/collections">Collections</Link>
+            <Link href="/travel-information">Travel information</Link>
             <Link href="/about">Our story</Link>
             <Link href="/contact">Contact us</Link>
           </div>
@@ -412,6 +418,8 @@ export default function DestinationPage({
             <span>GET IN TOUCH</span>
             <Link href="/contact">Plan a journey</Link>
             <Link href="/contact">Make an enquiry</Link>
+            <a href="tel:+254799941114">+254 799 941114</a>
+            <a href="mailto:oyujelsey@gmail.com">oyujelsey@gmail.com</a>
           </div>
         </div>
         <div className="footer-bottom">

@@ -197,14 +197,20 @@ export default function ToursClient({ tours }: { tours: DBTour[] }) {
       {/* ── Header ── */}
       <header className="site-header">
         <Link href="/" className="brand" aria-label="Bokiama Tours and Travel home">
-          <span className="brand-symbol">B</span>
-          <span className="brand-name">BOKIAMA<small>TOURS &amp; TRAVEL</small></span>
+          <Image
+            src="/bokiama-logo.png"
+            alt="Bokiama Tours and Travel logo"
+            width={586}
+            height={450}
+            className="brand-logo"
+            priority
+          />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           <Link href="/">Home</Link>
           <Link href="/destinations/kenya">Destinations</Link>
           <Link href="/tours" aria-current="page">Our Tours</Link>
-          <Link href="/collections">Experiences</Link>
+          <Link href="/#collections">Experiences</Link>
           <Link href="/about">Our Story</Link>
         </nav>
         <Link href="/contact" className="header-cta">Plan your journey <span>↗</span></Link>
@@ -215,7 +221,7 @@ export default function ToursClient({ tours }: { tours: DBTour[] }) {
             <Link href="/destinations/kenya">Kenya</Link>
             <Link href="/destinations/tanzania">Tanzania</Link>
             <Link href="/tours">Our Tours</Link>
-            <Link href="/collections">Experiences</Link>
+            <Link href="/#collections">Experiences</Link>
             <Link href="/about">Our Story</Link>
             <Link href="/contact">Contact</Link>
           </nav>
@@ -279,6 +285,11 @@ export default function ToursClient({ tours }: { tours: DBTour[] }) {
             </p>
           </>
         )}
+        <p className="tours-pricing-note">
+          Listed prices are starting estimates and may change with dates,
+          availability and room arrangements.{" "}
+          <Link href="/travel-information#costs">Read our pricing and booking guidance</Link>.
+        </p>
       </section>
 
       {/* ── Custom trip CTA ── */}
@@ -295,8 +306,13 @@ export default function ToursClient({ tours }: { tours: DBTour[] }) {
       <footer className="site-footer">
         <div className="footer-top">
           <Link href="/" className="brand footer-brand">
-            <span className="brand-symbol">B</span>
-            <span className="brand-name">BOKIAMA<small>TOURS &amp; TRAVEL</small></span>
+            <Image
+              src="/bokiama-logo-light.png"
+              alt="Bokiama Tours and Travel logo"
+              width={586}
+              height={450}
+              className="brand-logo"
+            />
           </Link>
           <p>Go beyond the expected.<br />Come back with a story.</p>
         </div>
@@ -309,7 +325,7 @@ export default function ToursClient({ tours }: { tours: DBTour[] }) {
           </div>
           <div>
             <span>DISCOVER</span>
-            <Link href="/collections">Collections</Link>
+            <Link href="/travel-information">Travel information</Link>
             <Link href="/about">Our story</Link>
             <Link href="/contact">Contact us</Link>
           </div>
@@ -317,6 +333,8 @@ export default function ToursClient({ tours }: { tours: DBTour[] }) {
             <span>GET IN TOUCH</span>
             <Link href="/contact">Plan a journey</Link>
             <Link href="/contact">Make an enquiry</Link>
+            <a href="tel:+254799941114">+254 799 941114</a>
+            <a href="mailto:oyujelsey@gmail.com">oyujelsey@gmail.com</a>
           </div>
         </div>
         <div className="footer-bottom">

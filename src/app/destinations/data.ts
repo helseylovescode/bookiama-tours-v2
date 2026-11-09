@@ -127,10 +127,10 @@ export const DESTINATIONS: Record<string, Destination> = {
       { icon: "🌡️", label: "Climate", value: "Tropical; varies by altitude" },
       { icon: "✈️", label: "Main Gateway", value: "Nairobi (JKIA)" },
       { icon: "🗣️", label: "Languages", value: "Swahili & English" },
-      { icon: "🛂", label: "Visa", value: "eTA required for most visitors" },
+      { icon: "🛂", label: "Visa", value: "Check current eTA eligibility" },
       { icon: "🕐", label: "Time Zone", value: "EAT (UTC+3)" },
       { icon: "🔌", label: "Power", value: "240V, Type G plugs" },
-      { icon: "💉", label: "Vaccinations", value: "Yellow fever cert. may be required" },
+      { icon: "💉", label: "Vaccinations", value: "Check requirements for your route" },
     ],
     regions: [
       {
@@ -252,10 +252,10 @@ export const DESTINATIONS: Record<string, Destination> = {
       { icon: "🌡️", label: "Climate", value: "Tropical; dry season ideal" },
       { icon: "✈️", label: "Main Gateways", value: "Dar es Salaam, Kilimanjaro, Zanzibar" },
       { icon: "🗣️", label: "Languages", value: "Swahili & English" },
-      { icon: "🛂", label: "Visa", value: "Visa on arrival / eVisa available" },
+      { icon: "🛂", label: "Visa", value: "Check current visa eligibility" },
       { icon: "🕐", label: "Time Zone", value: "EAT (UTC+3)" },
       { icon: "🔌", label: "Power", value: "230V, Type D/G plugs" },
-      { icon: "💉", label: "Vaccinations", value: "Yellow fever cert. required" },
+      { icon: "💉", label: "Vaccinations", value: "Check requirements for your route" },
     ],
     regions: [
       {

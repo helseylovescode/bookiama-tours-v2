@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
 
@@ -14,18 +15,25 @@ interface Props {
 
 const contactChannels = [
   {
-    icon: "💬",
-    label: "WhatsApp",
-    value: "+254 700 000 000",
-    note: "Fastest response — usually within the hour",
-    href: "https://wa.me/254700000000",
+    icon: "✉️",
+    label: "Enquiry form",
+    value: "Send us your trip details",
+    note: "Request a personalised quotation",
+    href: "/contact#enquiry",
   },
   {
     icon: "📧",
     label: "Email",
-    value: "hello@bokiamatours.com",
+    value: "oyujelsey@gmail.com",
     note: "We respond within 24 hours",
-    href: "mailto:hello@bokiamatours.com",
+    href: "mailto:oyujelsey@gmail.com",
+  },
+  {
+    icon: "📞",
+    label: "Phone",
+    value: "+254 799 941114",
+    note: "Call Bokiama Tours & Travel",
+    href: "tel:+254799941114",
   },
   {
     icon: "📍",
@@ -43,7 +51,7 @@ const faqs = [
   },
   {
     q: "How quickly will you respond?",
-    a: "We aim to respond within 24 hours on weekdays. For urgent enquiries, WhatsApp is the fastest way to reach us.",
+    a: "Send us your trip details using the enquiry form and we will follow up by email.",
   },
   {
     q: "Can you build a completely custom itinerary?",
@@ -55,11 +63,11 @@ const faqs = [
   },
   {
     q: "What are your payment methods?",
-    a: "We accept M-Pesa and bank transfer for Kenyan customers. International customers can pay by bank transfer. Full payment instructions are provided with your booking confirmation.",
+    a: "The supplied terms specify a 25% deposit and the remaining balance 40 days before travel. Your written quotation will confirm accepted payment methods and due dates.",
   },
   {
     q: "What is your cancellation policy?",
-    a: "Cancellations more than 30 days before departure receive a partial refund. Within 30 days, the deposit is non-refundable. We strongly recommend travel insurance for all bookings.",
+    a: "The supplied terms list cancellation charges of 26% from 90–40 days, 52% from 39–22 days, and 100% from 21 days before arrival or for a no-show. Refunds are processed within 15 days after confirmation, less bank and currency-exchange fees. Review your written quotation before booking.",
   },
 ];
 
@@ -72,11 +80,14 @@ export default async function ContactPage({ searchParams }: Props) {
       {/* ── Header ── */}
       <header className="site-header">
         <Link href="/" className="brand" aria-label="Bokiama Tours and Travel home">
-          <span className="brand-symbol">B</span>
-          <span className="brand-name">
-            BOKIAMA
-            <small>TOURS &amp; TRAVEL</small>
-          </span>
+          <Image
+            src="/bokiama-logo.png"
+            alt="Bokiama Tours and Travel logo"
+            width={586}
+            height={450}
+            className="brand-logo"
+            priority
+          />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           <Link href="/">Home</Link>
@@ -150,7 +161,7 @@ export default async function ContactPage({ searchParams }: Props) {
       </section>
 
       {/* ── Main content: form + sidebar ── */}
-      <section className="contact-body section-padding">
+      <section id="enquiry" className="contact-body section-padding">
         {/* Form column */}
         <div className="contact-form-col">
           <div className="contact-form-header">
@@ -171,22 +182,16 @@ export default async function ContactPage({ searchParams }: Props) {
 
         {/* Sidebar */}
         <aside className="contact-sidebar">
-          {/* WhatsApp CTA */}
+          {/* Enquiry CTA */}
           <div className="contact-whatsapp-card">
-            <span className="contact-whatsapp-icon" aria-hidden>💬</span>
-            <h3>Prefer to chat directly?</h3>
+            <span className="contact-whatsapp-icon" aria-hidden>✉️</span>
+            <h3>Planning a trip?</h3>
             <p>
-              Send us a WhatsApp message with your travel idea.
-              We respond fast — usually within the hour.
+              Share your dates, group size and interests in our enquiry form.
             </p>
-            <a
-              href="https://wa.me/254700000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button button-gold contact-wa-btn"
-            >
-              Chat on WhatsApp ↗
-            </a>
+            <Link href="#enquiry" className="button button-gold contact-wa-btn">
+              Send an enquiry ↗
+            </Link>
           </div>
 
           {/* What to expect */}
@@ -229,9 +234,8 @@ export default async function ContactPage({ searchParams }: Props) {
             <ul className="contact-trust-list">
               <li><span aria-hidden>✓</span> No payment required to enquire</li>
               <li><span aria-hidden>✓</span> Personalised quotation within 24 hours</li>
-              <li><span aria-hidden>✓</span> No hidden fees — everything itemised</li>
-              <li><span aria-hidden>✓</span> Licensed and locally based in Nairobi</li>
-              <li><span aria-hidden>✓</span> M-Pesa and bank transfer accepted</li>
+              <li><span aria-hidden>✓</span> Review trip inclusions and exclusions before booking</li>
+              <li><span aria-hidden>✓</span> Request payment and cancellation terms before booking</li>
             </ul>
           </div>
         </aside>
@@ -285,11 +289,13 @@ export default async function ContactPage({ searchParams }: Props) {
       <footer className="site-footer">
         <div className="footer-top">
           <Link href="/" className="brand footer-brand">
-            <span className="brand-symbol">B</span>
-            <span className="brand-name">
-              BOKIAMA
-              <small>TOURS &amp; TRAVEL</small>
-            </span>
+            <Image
+              src="/bokiama-logo-light.png"
+              alt="Bokiama Tours and Travel logo"
+              width={586}
+              height={450}
+              className="brand-logo"
+            />
           </Link>
           <p>
             Go beyond the expected.
@@ -306,16 +312,16 @@ export default async function ContactPage({ searchParams }: Props) {
           </div>
           <div>
             <span>DISCOVER</span>
-            <Link href="/collections">Collections</Link>
+            <Link href="/travel-information">Travel information</Link>
             <Link href="/about">Our story</Link>
             <Link href="/contact">Contact us</Link>
           </div>
           <div>
             <span>GET IN TOUCH</span>
             <Link href="/contact">Plan a journey</Link>
-            <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">
-              WhatsApp us
-            </a>
+            <Link href="/contact#enquiry">Send an enquiry</Link>
+            <a href="tel:+254799941114">+254 799 941114</a>
+            <a href="mailto:oyujelsey@gmail.com">oyujelsey@gmail.com</a>
           </div>
         </div>
         <div className="footer-bottom">
