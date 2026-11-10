@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useRef } from "react";
 import { submitEnquiry, type FormState } from "./actions";
 import Link from "next/link";
+import LineIcon from "../components/LineIcon";
 
 const INITIAL: FormState = { status: "idle" };
 
@@ -49,7 +50,7 @@ export default function ContactForm({ prefilledTour }: Props) {
   if (state.status === "success") {
     return (
       <div className="cf-success" ref={successRef}>
-        <span className="cf-success-icon" aria-hidden>✓</span>
+        <span className="cf-success-icon"><LineIcon name="check" size={24} /></span>
         <div>
           <h2>Enquiry received.</h2>
           <p>
@@ -93,7 +94,7 @@ export default function ContactForm({ prefilledTour }: Props) {
       {/* Error banner */}
       {state.status === "error" && (
         <div className="cf-error-banner" role="alert">
-          <span aria-hidden>⚠</span> {state.message}
+          <LineIcon name="warning" size={18} /> {state.message}
         </div>
       )}
 

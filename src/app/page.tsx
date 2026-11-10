@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LineIcon from "./components/LineIcon";
 import type { ReactNode } from "react";
 const destinations = [
   {
@@ -110,7 +111,7 @@ export default function Home() {
         </a>
 
         <details className="mobile-menu">
-          <summary aria-label="Open navigation menu">☰</summary>
+          <summary aria-label="Open navigation menu"><LineIcon name="menu" /></summary>
           <nav aria-label="Mobile navigation">
             <a href="/">Home</a>
             <a href="/destinations/kenya">Kenya</a>

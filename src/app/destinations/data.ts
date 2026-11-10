@@ -1,9 +1,10 @@
 // Static destination data — replace with Supabase queries once live.
 
 import { TOURS } from "../tours/data";
+import type { IconName } from "../components/LineIcon";
 
 export interface Highlight {
-  icon: string;
+  icon: IconName;
   title: string;
   description: string;
 }
@@ -16,7 +17,7 @@ export interface Season {
 }
 
 export interface PracticalInfo {
-  icon: string;
+  icon: IconName;
   label: string;
   value: string;
 }
@@ -56,37 +57,37 @@ export const DESTINATIONS: Record<string, Destination> = {
       "Covering 580,000 square kilometres from the Indian Ocean coastline to the high peaks of Mount Kenya, this is a country of extraordinary diversity. Savannah, forest, desert, coast and mountain — Kenya holds them all. It is home to the greatest wildlife spectacle on earth, some of Africa's most welcoming people and a growing culture of responsible tourism that Bokiama is proud to support.",
     highlights: [
       {
-        icon: "🦁",
+        icon: "paw",
         title: "Wildlife & Safaris",
         description:
           "The Big Five, the Great Migration and year-round game viewing across national parks and conservancies.",
       },
       {
-        icon: "🏖️",
+        icon: "beach",
         title: "Coastal Beauty",
         description:
           "Over 500km of Indian Ocean coastline — white sand, warm water, coral reefs and laid-back beach towns.",
       },
       {
-        icon: "⛰️",
+        icon: "mountain",
         title: "Mountain Adventures",
         description:
           "Mount Kenya, the Aberdares and the Rift Valley for trekking, hiking and dramatic landscapes.",
       },
       {
-        icon: "🎭",
+        icon: "culture",
         title: "Culture & People",
         description:
           "Over 40 distinct communities, vibrant markets, traditional ceremonies and remarkable local hospitality.",
       },
       {
-        icon: "🌿",
+        icon: "leaf",
         title: "Conservation",
         description:
           "World-leading wildlife conservation, community conservancies and responsible tourism initiatives.",
       },
       {
-        icon: "🍽️",
+        icon: "utensils",
         title: "Food & Flavour",
         description:
           "Coastal Swahili cuisine, nyama choma traditions, fresh seafood and East African flavours.",
@@ -123,14 +124,14 @@ export const DESTINATIONS: Record<string, Destination> = {
       },
     ],
     practical: [
-      { icon: "💰", label: "Currency", value: "Kenyan Shilling (KES)" },
-      { icon: "🌡️", label: "Climate", value: "Tropical; varies by altitude" },
-      { icon: "✈️", label: "Main Gateway", value: "Nairobi (JKIA)" },
-      { icon: "🗣️", label: "Languages", value: "Swahili & English" },
-      { icon: "🛂", label: "Visa", value: "Check current eTA eligibility" },
-      { icon: "🕐", label: "Time Zone", value: "EAT (UTC+3)" },
-      { icon: "🔌", label: "Power", value: "240V, Type G plugs" },
-      { icon: "💉", label: "Vaccinations", value: "Check requirements for your route" },
+      { icon: "coin", label: "Currency", value: "Kenyan Shilling (KES)" },
+      { icon: "sun", label: "Climate", value: "Tropical; varies by altitude" },
+      { icon: "plane", label: "Main Gateway", value: "Nairobi (JKIA)" },
+      { icon: "language", label: "Languages", value: "Swahili & English" },
+      { icon: "badge", label: "Visa", value: "Check current eTA eligibility" },
+      { icon: "clock", label: "Time Zone", value: "EAT (UTC+3)" },
+      { icon: "plug", label: "Power", value: "240V, Type G plugs" },
+      { icon: "medical", label: "Vaccinations", value: "Check requirements for your route" },
     ],
     regions: [
       {
@@ -181,37 +182,37 @@ export const DESTINATIONS: Record<string, Destination> = {
       "From the world's largest intact volcanic caldera to the planet's highest freestanding mountain, Tanzania deals in extraordinary things. The Serengeti alone covers 30,000 square kilometres of open savannah. Add Zanzibar's historic Stone Town and coral beaches, Selous's remote wilderness, and the warm hospitality of the Tanzanian people, and you have one of Africa's most rewarding travel destinations.",
     highlights: [
       {
-        icon: "🦓",
+        icon: "paw",
         title: "The Great Migration",
         description:
           "Over 1.5 million wildebeest and 300,000 zebra move continuously through the Serengeti ecosystem — one of nature's greatest events.",
       },
       {
-        icon: "🌋",
+        icon: "volcano",
         title: "Ngorongoro Crater",
         description:
           "The world's largest intact volcanic caldera — a 600-metre-deep bowl sheltering the highest density of wildlife in Africa.",
       },
       {
-        icon: "🏔️",
+        icon: "mountain",
         title: "Mount Kilimanjaro",
         description:
           "Africa's highest peak at 5,895m. The classic Uhuru Peak summit is on many travellers' bucket lists.",
       },
       {
-        icon: "🏝️",
+        icon: "island",
         title: "Zanzibar",
         description:
           "The Spice Island — pristine beaches, turquoise water, ancient Stone Town and warm Indian Ocean culture.",
       },
       {
-        icon: "🐘",
+        icon: "paw",
         title: "Remote Wilderness",
         description:
           "Selous, Ruaha and Katavi offer vast, uncrowded wilderness for travellers seeking something beyond the well-trodden circuit.",
       },
       {
-        icon: "🤿",
+        icon: "snorkel",
         title: "Marine Life",
         description:
           "Mnemba Atoll, Mafia Island and Pemba offer world-class diving and snorkelling on pristine reefs.",
@@ -248,14 +249,14 @@ export const DESTINATIONS: Record<string, Destination> = {
       },
     ],
     practical: [
-      { icon: "💰", label: "Currency", value: "Tanzanian Shilling (TZS)" },
-      { icon: "🌡️", label: "Climate", value: "Tropical; dry season ideal" },
-      { icon: "✈️", label: "Main Gateways", value: "Dar es Salaam, Kilimanjaro, Zanzibar" },
-      { icon: "🗣️", label: "Languages", value: "Swahili & English" },
-      { icon: "🛂", label: "Visa", value: "Check current visa eligibility" },
-      { icon: "🕐", label: "Time Zone", value: "EAT (UTC+3)" },
-      { icon: "🔌", label: "Power", value: "230V, Type D/G plugs" },
-      { icon: "💉", label: "Vaccinations", value: "Check requirements for your route" },
+      { icon: "coin", label: "Currency", value: "Tanzanian Shilling (TZS)" },
+      { icon: "sun", label: "Climate", value: "Tropical; dry season ideal" },
+      { icon: "plane", label: "Main Gateways", value: "Dar es Salaam, Kilimanjaro, Zanzibar" },
+      { icon: "language", label: "Languages", value: "Swahili & English" },
+      { icon: "badge", label: "Visa", value: "Check current visa eligibility" },
+      { icon: "clock", label: "Time Zone", value: "EAT (UTC+3)" },
+      { icon: "plug", label: "Power", value: "230V, Type D/G plugs" },
+      { icon: "medical", label: "Vaccinations", value: "Check requirements for your route" },
     ],
     regions: [
       {

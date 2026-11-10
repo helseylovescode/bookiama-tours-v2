@@ -1,9 +1,6 @@
 // Static tour data — replace with Supabase queries once packages are loaded.
 
-export type PricingCategory =
-  | "kenyan_citizen"
-  | "kenyan_resident"
-  | "international_visitor";
+export type PricingCategory = string;
 
 export interface TourPrice {
   category: PricingCategory;

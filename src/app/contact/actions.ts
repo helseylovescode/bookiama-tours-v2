@@ -1,5 +1,6 @@
 "use server";
 
+import { randomBytes } from "node:crypto";
 import { createClient } from "@/lib/supabase/server";
 
 export type FormState =
@@ -38,6 +39,10 @@ export async function submitEnquiry(
   const budget = (formData.get("budget") as string) ?? "";
   const mood = (formData.get("mood") as string) ?? "";
   const message = (formData.get("message") as string) ?? "";
+  const enquiryContext = [
+    country ? `Traveller country: ${country.trim()}` : null,
+    budget ? `Approximate budget: ${budget}` : null,
+  ].filter(Boolean);
 
   // ── Validate ──
   const errors: string[] = [];
@@ -55,6 +60,7 @@ export async function submitEnquiry(
   }
 
   const supabase = await createClient();
+  const requestReference = `TRIP-${randomBytes(5).toString("hex").toUpperCase()}`;
 
   try {
     if (enquiryType === "tour" && tourName) {
@@ -62,9 +68,10 @@ export async function submitEnquiry(
       // We insert into booking_requests with the tour title in special_requests
       // since we don't have a tour UUID at this stage (pre-Supabase data).
       // Once tours are live in the DB, this will look up the tour_id by slug.
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from("custom_trip_requests")
         .insert({
+          request_reference: requestReference,
           contact_name: name.trim(),
           contact_email: email.trim().toLowerCase(),
           contact_phone: phone.trim(),
@@ -75,17 +82,21 @@ export async function submitEnquiry(
           travel_mood: mood || null,
           notes: [
             tourName ? `Tour of interest: ${tourName}` : null,
+            ...enquiryContext,
             message ? message.trim() : null,
           ]
             .filter(Boolean)
             .join("\n\n") || null,
           status: "requested",
-        })
-        .select("request_reference")
-        .single();
+        });
 
       if (error) {
-        console.error("Supabase insert error:", error);
+        console.error("[submitEnquiry] Supabase insert failed", {
+          code: error.code,
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+        });
         return {
           status: "error",
           message:
@@ -95,13 +106,14 @@ export async function submitEnquiry(
 
       return {
         status: "success",
-        reference: data.request_reference,
+        reference: requestReference,
       };
     } else {
       // ── General / custom trip enquiry ──
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from("custom_trip_requests")
         .insert({
+          request_reference: requestReference,
           contact_name: name.trim(),
           contact_email: email.trim().toLowerCase(),
           contact_phone: phone.trim(),
@@ -110,14 +122,19 @@ export async function submitEnquiry(
           traveller_count: adults + children > 0 ? adults + children : null,
           budget_currency: "KES",
           travel_mood: mood || null,
-          notes: message ? message.trim() : null,
+          notes: [...enquiryContext, message ? message.trim() : null]
+            .filter(Boolean)
+            .join("\n\n") || null,
           status: "requested",
-        })
-        .select("request_reference")
-        .single();
+        });
 
       if (error) {
-        console.error("Supabase insert error:", error);
+        console.error("[submitEnquiry] Supabase insert failed", {
+          code: error.code,
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+        });
         return {
           status: "error",
           message:
@@ -127,7 +144,7 @@ export async function submitEnquiry(
 
       return {
         status: "success",
-        reference: data.request_reference,
+        reference: requestReference,
       };
     }
   } catch (err) {

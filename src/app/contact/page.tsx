@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
+import LineIcon from "../components/LineIcon";
+import type { IconName } from "../components/LineIcon";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -15,34 +17,40 @@ interface Props {
 
 const contactChannels = [
   {
-    icon: "✉️",
+    icon: "mail",
     label: "Enquiry form",
     value: "Send us your trip details",
     note: "Request a personalised quotation",
     href: "/contact#enquiry",
   },
   {
-    icon: "📧",
+    icon: "mail",
     label: "Email",
     value: "oyujelsey@gmail.com",
     note: "We respond within 24 hours",
     href: "mailto:oyujelsey@gmail.com",
   },
   {
-    icon: "📞",
+    icon: "phone",
     label: "Phone",
     value: "+254 799 941114",
     note: "Call Bokiama Tours & Travel",
     href: "tel:+254799941114",
   },
   {
-    icon: "📍",
+    icon: "pin",
     label: "Location",
     value: "Nairobi, Kenya",
     note: "Serving Kenya & Tanzania",
     href: null,
   },
-];
+] satisfies {
+  icon: IconName;
+  label: string;
+  value: string;
+  note: string;
+  href: string | null;
+}[];
 
 const faqs = [
   {
@@ -100,7 +108,7 @@ export default async function ContactPage({ searchParams }: Props) {
           Plan your journey <span>↗</span>
         </Link>
         <details className="mobile-menu">
-          <summary aria-label="Open navigation menu">☰</summary>
+          <summary aria-label="Open navigation menu"><LineIcon name="menu" /></summary>
           <nav aria-label="Mobile navigation">
             <Link href="/">Home</Link>
             <Link href="/destinations/kenya">Kenya</Link>
@@ -138,7 +146,7 @@ export default async function ContactPage({ searchParams }: Props) {
         <div className="contact-channels">
           {contactChannels.map((c) => (
             <div className="contact-channel" key={c.label}>
-              <span className="contact-channel-icon" aria-hidden>{c.icon}</span>
+              <span className="contact-channel-icon"><LineIcon name={c.icon} size={22} /></span>
               <div>
                 <span className="contact-channel-label">{c.label}</span>
                 {c.href ? (
@@ -184,7 +192,7 @@ export default async function ContactPage({ searchParams }: Props) {
         <aside className="contact-sidebar">
           {/* Enquiry CTA */}
           <div className="contact-whatsapp-card">
-            <span className="contact-whatsapp-icon" aria-hidden>✉️</span>
+            <span className="contact-whatsapp-icon"><LineIcon name="mail" size={30} /></span>
             <h3>Planning a trip?</h3>
             <p>
               Share your dates, group size and interests in our enquiry form.
@@ -232,10 +240,10 @@ export default async function ContactPage({ searchParams }: Props) {
           {/* Trust signals */}
           <div className="contact-trust-card">
             <ul className="contact-trust-list">
-              <li><span aria-hidden>✓</span> No payment required to enquire</li>
-              <li><span aria-hidden>✓</span> Personalised quotation within 24 hours</li>
-              <li><span aria-hidden>✓</span> Review trip inclusions and exclusions before booking</li>
-              <li><span aria-hidden>✓</span> Request payment and cancellation terms before booking</li>
+              <li><LineIcon name="check" size={16} /> No payment required to enquire</li>
+              <li><LineIcon name="check" size={16} /> Personalised quotation within 24 hours</li>
+              <li><LineIcon name="check" size={16} /> Review trip inclusions and exclusions before booking</li>
+              <li><LineIcon name="check" size={16} /> Request payment and cancellation terms before booking</li>
             </ul>
           </div>
         </aside>

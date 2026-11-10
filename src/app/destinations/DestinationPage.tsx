@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LineIcon from "../components/LineIcon";
 import type { Destination } from "./data";
 import type { DBTour } from "@/lib/queries";
 import { coverImage, lowestPriceLabel } from "@/lib/queries";
@@ -36,7 +37,7 @@ function TourCard({ tour }: { tour: DBTour }) {
           </span>
         </p>
         <h3 className="tour-card-title">{tour.title}</h3>
-        <p className="tour-card-destination">📍 {tour.destination.name}</p>
+        <p className="tour-card-destination"><LineIcon name="pin" size={14} /> {tour.destination.name}</p>
         <p className="tour-card-summary">{tour.summary}</p>
         <ul className="tour-card-highlights">
           {tour.highlights.slice(0, 3).map((h) => (
@@ -93,7 +94,7 @@ export default function DestinationPage({
           Plan your journey <span>↗</span>
         </Link>
         <details className="mobile-menu">
-          <summary aria-label="Open navigation menu">☰</summary>
+          <summary aria-label="Open navigation menu"><LineIcon name="menu" /></summary>
           <nav aria-label="Mobile navigation">
             <Link href="/">Home</Link>
             <Link href="/destinations/kenya">Kenya</Link>
@@ -121,7 +122,7 @@ export default function DestinationPage({
         <div className="dest-hero-content">
           <p className="hero-eyebrow">
             <span />
-            {destination.country === "KE" ? "🇰🇪" : "🇹🇿"} EAST AFRICA
+            <LineIcon name="globe" size={14} /> EAST AFRICA
           </p>
           <h1>
             {destination.name}
@@ -171,7 +172,7 @@ export default function DestinationPage({
         <div className="dest-highlights-grid">
           {destination.highlights.map((h) => (
             <div className="dest-highlight-card" key={h.title}>
-              <span className="dest-highlight-icon" aria-hidden>{h.icon}</span>
+              <span className="dest-highlight-icon"><LineIcon name={h.icon} size={28} /></span>
               <h3>{h.title}</h3>
               <p>{h.description}</p>
             </div>
@@ -316,7 +317,7 @@ export default function DestinationPage({
         <div className="dest-practical-grid">
           {destination.practical.map((item) => (
             <div className="dest-practical-item" key={item.label}>
-              <span className="dest-practical-icon" aria-hidden>{item.icon}</span>
+              <span className="dest-practical-icon"><LineIcon name={item.icon} size={22} /></span>
               <div>
                 <span className="dest-practical-label">{item.label}</span>
                 <span className="dest-practical-value">{item.value}</span>
@@ -325,7 +326,7 @@ export default function DestinationPage({
           ))}
         </div>
         <p className="dest-practical-note">
-          ℹ️ Travel requirements can change. Always verify visa, health and entry requirements
+          <LineIcon name="info" size={16} /> Travel requirements can change. Always verify visa, health and entry requirements
           with official government sources before booking.{" "}
           <Link href="/travel-information#visas">See official visa resources ↗</Link>
         </p>

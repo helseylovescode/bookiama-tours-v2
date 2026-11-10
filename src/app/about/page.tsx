@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import LineIcon from "../components/LineIcon";
+import type { IconName } from "../components/LineIcon";
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -12,42 +14,42 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    icon: "🌍",
+    icon: "globe",
     title: "Locally rooted",
     description:
       "We are not a global agency reselling someone else's tours. Every route, lodge and guide we recommend has been chosen by people who live here.",
   },
   {
-    icon: "🤝",
+    icon: "handshake",
     title: "Honest dealing",
     description:
       "You will always know exactly what your price includes — and what it does not. No hidden fees. No invented availability. Just straight answers.",
   },
   {
-    icon: "✨",
+    icon: "sparkle",
     title: "Journeys that fit",
     description:
       "We believe the best trips are the ones built around the actual person taking them — not a standard template adjusted for your budget.",
   },
   {
-    icon: "🌱",
+    icon: "sprout",
     title: "Travel with purpose",
     description:
       "We work with locally owned lodges, community conservancies and verified partners who share our commitment to responsible tourism.",
   },
   {
-    icon: "📞",
+    icon: "phone",
     title: "Real support",
     description:
       "From your first enquiry to the moment you get home, a real person is here to answer your questions.",
   },
   {
-    icon: "🏆",
+    icon: "trophy",
     title: "Quality over volume",
     description:
       "We would rather take fewer customers on exceptional journeys than fill seats on average ones.",
   },
-];
+] satisfies { icon: IconName; title: string; description: string }[];
 
 const milestones = [
   {
@@ -120,7 +122,7 @@ export default function AboutPage() {
           Plan your journey <span>↗</span>
         </Link>
         <details className="mobile-menu">
-          <summary aria-label="Open navigation menu">☰</summary>
+          <summary aria-label="Open navigation menu"><LineIcon name="menu" /></summary>
           <nav aria-label="Mobile navigation">
             <Link href="/">Home</Link>
             <Link href="/destinations/kenya">Kenya</Link>
@@ -254,7 +256,7 @@ export default function AboutPage() {
         <div className="about-values-grid">
           {values.map((v) => (
             <div className="about-value-card" key={v.title}>
-              <span className="about-value-icon" aria-hidden>{v.icon}</span>
+              <span className="about-value-icon"><LineIcon name={v.icon} size={30} /></span>
               <h3>{v.title}</h3>
               <p>{v.description}</p>
             </div>

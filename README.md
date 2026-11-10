@@ -20,6 +20,22 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Admin dashboard
+
+The owner-only dashboard is available at `/admin`. Before signing in:
+
+1. Apply the Supabase migrations in `supabase/migrations`, including
+   `20261110110000_allow_public_enquiry_references.sql` and
+   `20261110120000_create_owner_quotation_rpc.sql`.
+2. Create the owner account in Supabase Authentication.
+3. Promote that account by setting its `public.profiles.role` to `owner`. The
+   initial schema migration includes the SQL for this step.
+
+The dashboard includes an enquiry inbox, overview metrics, tour management,
+and draft quotations. Quotations are not emailed automatically; use
+**Prepare email** to open a message in your mail app, then update the quotation
+status after sending it.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

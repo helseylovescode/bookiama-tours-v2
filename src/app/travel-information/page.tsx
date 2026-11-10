@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import LineIcon from "../components/LineIcon";
 
 export const metadata: Metadata = {
   title: "Travel Information & Booking Terms",
@@ -51,7 +52,7 @@ export default function TravelInformationPage() {
           Plan your journey <span>↗</span>
         </Link>
         <details className="mobile-menu">
-          <summary aria-label="Open navigation menu">☰</summary>
+          <summary aria-label="Open navigation menu"><LineIcon name="menu" /></summary>
           <nav aria-label="Mobile navigation">
             <Link href="/">Home</Link>
             <Link href="/destinations/kenya">Kenya</Link>

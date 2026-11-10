@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { DBTour } from "@/types/tour";
+import LineIcon from "../components/LineIcon";
 
 function coverImage(tour: DBTour): string {
   const cover = tour.images.find((i) => i.is_cover) ?? tour.images[0];
@@ -37,7 +38,7 @@ const DESTINATIONS = [
 
 function TourCard({ tour }: { tour: DBTour }) {
   const countryCode = tour.destination.country_code;
-  const flag = countryCode === "KE" ? "🇰🇪 Kenya" : "🇹🇿 Tanzania";
+  const country = countryCode === "KE" ? "Kenya" : "Tanzania";
 
   return (
     <Link href={`/tours/${tour.slug}`} className="tour-card" aria-label={tour.title}>
@@ -49,7 +50,7 @@ function TourCard({ tour }: { tour: DBTour }) {
           sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
           className="tour-card-img"
         />
-        <span className="tour-card-country">{flag}</span>
+        <span className="tour-card-country">{country}</span>
         {tour.is_featured && <span className="tour-card-featured">Featured</span>}
         <span className="tour-card-arrow">↗</span>
       </div>
@@ -62,7 +63,7 @@ function TourCard({ tour }: { tour: DBTour }) {
           </span>
         </p>
         <h3 className="tour-card-title">{tour.title}</h3>
-        <p className="tour-card-destination">📍 {tour.destination.name}</p>
+        <p className="tour-card-destination"><LineIcon name="pin" size={14} /> {tour.destination.name}</p>
         <p className="tour-card-summary">{tour.summary}</p>
         <ul className="tour-card-highlights">
           {tour.highlights.slice(0, 3).map((h) => <li key={h}>{h}</li>)}
@@ -107,7 +108,7 @@ function FilterBar({
   return (
     <div className="tours-filters" role="search" aria-label="Filter tours">
       <div className="filter-search-wrap">
-        <span className="filter-search-icon" aria-hidden>🔍</span>
+        <LineIcon name="search" size={16} className="filter-search-icon" />
         <input
           type="search"
           placeholder="Search tours…"
@@ -145,7 +146,7 @@ function FilterBar({
           onClick={() => onChange({ destination: "all", category: "all", duration: "all", search: "" })}
           aria-label="Clear all filters"
         >
-          Clear ✕
+          Clear <LineIcon name="close" size={14} />
         </button>
       )}
     </div>
@@ -215,7 +216,7 @@ export default function ToursClient({ tours }: { tours: DBTour[] }) {
         </nav>
         <Link href="/contact" className="header-cta">Plan your journey <span>↗</span></Link>
         <details className="mobile-menu">
-          <summary aria-label="Open navigation menu">☰</summary>
+          <summary aria-label="Open navigation menu"><LineIcon name="menu" /></summary>
           <nav aria-label="Mobile navigation">
             <Link href="/">Home</Link>
             <Link href="/destinations/kenya">Kenya</Link>

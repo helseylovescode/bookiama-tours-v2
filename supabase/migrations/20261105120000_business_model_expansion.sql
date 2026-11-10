@@ -389,6 +389,7 @@ to authenticated;
 
 -- Public custom trip submissions.
 grant insert (
+  status,
   contact_name,
   contact_email,
   contact_phone,
